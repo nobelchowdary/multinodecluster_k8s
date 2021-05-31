@@ -1,6 +1,6 @@
 # Configuring Master Node 
-yum install docker -y
-systemctl enable docker --now
+1. yum install docker -y
+2. systemctl enable docker --now
 >> vim /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
