@@ -1,5 +1,5 @@
-Configuring Master Node 
-# yum install docker -y
+# Configuring Master Node 
+ yum install docker -y
 # systemctl enable docker --now
 >> vim /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
@@ -27,7 +27,7 @@ exclude=kubelet kubeadm kubectl
 >> kubectl get pods --all-namespaces
 >> kubeadm token create  --print-join-command
 
-Configuring Slave Node
+# Configuring Slave Node
 >> yum install docker -y
 >> systemctl enable docker --now
 >> vim /etc/yum.repos.d/kubernetes.repo
@@ -55,7 +55,7 @@ net.bridge.bridge-nf-call-iptables = 1
 >> sysctl --system
 >> (copy this line from the last command of master node) kubeadm join 172.31.40.209:6443 --token 3joamn.y8asi8hw2jb41xx5     --discovery-token-ca-cert-hash sha256:86dd3714b1168b8de0abcb63300a458baf838860ff9c6f53bd85707853ff4db7
 
-Configuring Network Settings at Master Node
+# Configuring Network Settings at Master Node
 >> kubectl apply  -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 >> kubectl get pods --all-namespaces
 >> kubectl get nodes
